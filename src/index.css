@@ -1,0 +1,313 @@
+:root {
+  /* Type */
+  --font-serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua',
+    Georgia, 'Times New Roman', serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'Roboto Mono',
+    Menlo, Consolas, 'Liberation Mono', monospace;
+
+  /* Light theme — warm off-white, deep indigo ink, muted gold */
+  --bg: #f7f3ea;
+  --bg-panel: #fffdf8;
+  --ink: #1f2340;
+  --ink-soft: #4a4f6b;
+  --ink-faint: #7d8199;
+  --accent: #c19a3e;
+  --accent-strong: #a67c1f;
+  --line: #e4dcc9;
+  --line-strong: #d3c8ad;
+  --shadow: 0 1px 2px rgba(31, 35, 64, 0.05),
+    0 8px 24px rgba(31, 35, 64, 0.06);
+  --focus: #6a72c9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181f;
+    --bg-panel: #1e212b;
+    --ink: #eceadf;
+    --ink-soft: #b6b8c6;
+    --ink-faint: #8a8d9e;
+    --accent: #e0b85a;
+    --accent-strong: #efc96f;
+    --line: #2c303c;
+    --line-strong: #3a3f4e;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.35);
+    --focus: #9aa2ef;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+/* ---- Header ------------------------------------------------------------- */
+.site-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sun-motif {
+  color: var(--accent);
+  display: flex;
+  justify-content: center;
+  margin-bottom: -0.35rem;
+}
+
+.site-title {
+  font-size: clamp(1.9rem, 6vw, 2.7rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0.25rem 0 0.35rem;
+  color: var(--ink);
+}
+
+.site-tagline {
+  margin: 0 auto;
+  max-width: 30rem;
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+
+/* ---- Converter ---------------------------------------------------------- */
+.converter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.25rem 1.25rem 1.1rem;
+  box-shadow: var(--shadow);
+}
+
+.panel__title {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  margin: 0 0 0.9rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.panel__subtitle {
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+}
+
+.fields {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1 1 4.5rem;
+  min-width: 0;
+}
+
+.field--month {
+  flex: 2 1 8rem;
+}
+
+.field--full {
+  flex: 1 1 100%;
+}
+
+.field__label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.field__control {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  font-size: 1.05rem;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  padding: 0.6rem 0.7rem;
+  line-height: 1.2;
+}
+
+select.field__control {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23a67c1f' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 0.7rem;
+  padding-right: 1.9rem;
+  cursor: pointer;
+}
+
+.field__control:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+  border-color: var(--focus);
+}
+
+/* Style the native date control to fit the theme */
+input[type='date'].field__control {
+  min-height: 2.6rem;
+}
+input[type='date']::-webkit-calendar-picker-indicator {
+  filter: grayscale(1);
+  opacity: 0.55;
+  cursor: pointer;
+}
+
+.panel__result {
+  margin: 0.9rem 0 0;
+  font-size: clamp(1.4rem, 5vw, 1.85rem);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+/* ---- Swap button -------------------------------------------------------- */
+.swap {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.7rem;
+  height: 2.7rem;
+  margin: -0.15rem 0;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--bg-panel);
+  color: var(--accent-strong);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+  z-index: 1;
+}
+
+.swap:hover {
+  border-color: var(--accent);
+}
+
+.swap:active {
+  transform: scale(0.94);
+}
+
+.swap:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ---- Weekday note ------------------------------------------------------- */
+.weekday {
+  text-align: center;
+  margin: 1.5rem 0 0;
+  color: var(--ink-soft);
+}
+
+.weekday__label {
+  font-size: 0.9rem;
+}
+
+.weekday strong {
+  color: var(--accent-strong);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* ---- Explainer ---------------------------------------------------------- */
+.explainer {
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.explainer__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.6rem;
+  color: var(--ink);
+}
+
+.explainer p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+/* ---- Footer ------------------------------------------------------------- */
+.site-footer {
+  margin-top: auto;
+  padding-top: 2.5rem;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+  max-width: 32rem;
+  margin-inline: auto;
+}
+
+/* ---- Larger screens ----------------------------------------------------- */
+@media (min-width: 600px) {
+  #root {
+    padding-top: 3rem;
+  }
+  .panel {
+    padding: 1.5rem 1.5rem 1.3rem;
+  }
+}

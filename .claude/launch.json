@@ -1,0 +1,16 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "afghandate-dev",
+      "runtimeExecutable": "C:\\Program Files\\nodejs\\node.exe",
+      "runtimeArgs": [
+        "C:\\Users\\shams\\Desktop\\Claude Code\\afghandate\\node_modules\\vite\\bin\\vite.js",
+        "C:\\Users\\shams\\Desktop\\Claude Code\\afghandate",
+        "--port",
+        "5173"
+      ],
+      "port": 5173
+    }
+  ]
+}
