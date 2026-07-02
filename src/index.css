@@ -205,8 +205,15 @@ input[type='date'].field__control {
 }
 input[type='date']::-webkit-calendar-picker-indicator {
   filter: grayscale(1);
-  opacity: 0.55;
+  opacity: 0.6;
   cursor: pointer;
+}
+@media (prefers-color-scheme: dark) {
+  /* The native icon renders near-black; invert it so it shows on the dark panel. */
+  input[type='date']::-webkit-calendar-picker-indicator {
+    filter: invert(1) grayscale(1) brightness(1.4);
+    opacity: 0.75;
+  }
 }
 
 .panel__result {
