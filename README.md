@@ -1,10 +1,10 @@
-# AfghanDate
+# Afghan.XYZ
 
 A free, single-purpose web tool that converts dates between the **Afghan Solar
 Hijri calendar** and the **Gregorian calendar**. Fully static, runs entirely in
 the browser — no backend, no accounts, no tracking.
 
-Live domain: **afghandate.xyz**
+Live domain: **afghan.xyz**
 
 ## Tech stack
 
@@ -38,7 +38,7 @@ npm run preview    # preview the production build locally
 
 1. Push this repo to GitHub.
 2. Import it in Vercel — the Vite preset is auto-detected (`vercel.json` pins it).
-3. Add the custom domain `afghandate.xyz` in the project's Domains settings.
+3. Add the custom domain `afghan.xyz` in the project's Domains settings.
 
 No environment variables or build secrets are required.
 
